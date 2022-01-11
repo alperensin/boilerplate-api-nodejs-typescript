@@ -15,7 +15,8 @@ class User {
   @BeforeInsert()
   @BeforeUpdate()
   hashPassword() {
-    this.password = bcrypt.hashSync(this.password, process.env.PW_ENCRYPT_FORCE);
+    const salt = bcrypt.genSaltSync(+process.env.PW_ENCRYPT_FORCE!);
+    this.password = bcrypt.hashSync(this.password, salt);;
   }
 }
 

@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import './config/loadEnv';
 import './database/connect';
 import app from './app';
 
